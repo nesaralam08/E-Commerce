@@ -5,4 +5,5 @@ const ConnectDB = (url)=>{
     .then(()=>console.log("DB Connected"))
     .catch((e)=>console.log(e))
 }
+
 module.exports = ConnectDB

@@ -1,12 +1,15 @@
 import React from 'react'
 import logo from '../assets/logo_trans.png'
+// import {Link } from 'react-router-dom'
 function Footer() {
     return (
         <>
             <footer className="footer bg-base-200 text-base-content p-10">
                 <aside>
-                    <img src={logo} alt="logo" className='size-40' />
-                    <p>
+                    <button>
+                        <img src={logo} alt="logo" className='size-28' />
+                    </button>
+                    <p className='font-semibold'>
                         Alam Bazaar.
                         <br />
                         Shop anything, anytime since 2024.

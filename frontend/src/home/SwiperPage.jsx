@@ -23,9 +23,9 @@ export default function SwiperPage() {
           delay: 2500,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper xl:h-[550px] h-[150px] md:h-[300px]"

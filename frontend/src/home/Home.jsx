@@ -6,8 +6,8 @@ function Home() {
 
     <>
       <SwiperPage/>
-      <section className='hero min-h-screen flex items-center justify-center flex-col'>
-        <h1>Hello</h1>
+      <section className='hero h-80 flex items-center justify-center flex-col'>
+        <h1>Show Items</h1>
       </section>
     </>
   )

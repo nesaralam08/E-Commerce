@@ -150,7 +150,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                                 <div className='flex items-center gap-4 rounded-md mt-2 p-2 hover:bg-light'>
                                     <i className='text-xl md:text-2xl text-slate-600'>{i.icons}</i>
                                     <div>
-                                        <h3 className='font-semibold text-left text-slate-600'>{i.name}</h3>
+                                        <h3 className='font-semibold text-left text-slate-600 lg:text-md text-sm'>{i.name}</h3>
                                         {/* <p className='text-[12px] md:text-[14px]'>{i.tag}</p> */}
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                                 <div className='flex items-center gap-4 rounded-md mt-2 p-2 hover:bg-light'>
                                     <i className='text-2xl md:text-2xl text-slate-600'>{i.icons}</i>
                                     <div>
-                                        <h3 className='font-semibold text-left text-slate-600'>{i.name}</h3>
+                                        <h3 className='font-semibold text-left text-sm lg:text-md text-slate-600'>{i.name}</h3>
                                     </div>
                                 </div>
                             </Link>
