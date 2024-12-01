@@ -42,7 +42,7 @@ function Navbar() {
             onChange={() => setIsDrawerOpen(!isDrawerOpen)}
           />
           <nav>
-            <div className='container flex justify-between items-center py-8'>
+            <div className='px-6 flex justify-between items-center py-4'>
               <Link className='text-2xl flex items-center gap-2 font-bold uppercase' to='/'>
                 <FiShoppingBag />
                 <p className='text-[18px] md:text-[24px]'>Alam</p>

@@ -61,7 +61,7 @@ function CartPage({ onClose }) {
                     >
                         {
                             isAuthenticated ?
-                                <div className='relative bg-primary text-white mr-4 -ml-5 p-4 -pt-2 rounded-md min-h-44 h-auto'>
+                                <div className='relative bg-slate-700 text-white mr-4 -ml-5 p-4 -pt-2 rounded-md min-h-44 h-auto'>
                                     <div className='absolute -top-5 -right-4'>
                                         <button className=' px-2 py-2 rounded-full border mb-2 bg-blue-950 border-blue-950 hover:bg-primary' onClick={onClose}>
                                             <i className='sm:text-2xl'><RxCross2 /></i>

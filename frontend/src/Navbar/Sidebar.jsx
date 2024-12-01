@@ -12,10 +12,11 @@ import { MdOutlineHealthAndSafety } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { CiUser } from "react-icons/ci";
 import { LiaCartPlusSolid } from "react-icons/lia";
-import { IoListOutline } from "react-icons/io5";
 import { CiGift } from "react-icons/ci";
 import { MdOutlineHeadsetMic } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
+import { FaCircleUser } from "react-icons/fa6";
+import { CiDeliveryTruck } from "react-icons/ci";
 const catList = [
     {
         icons: <IoBag />,
@@ -73,12 +74,12 @@ const menuLinks = [
         path: "/user/dashboard"
     },
     {
-        icons: <LiaCartPlusSolid />,
+        icons: <CiDeliveryTruck />,
         name: "My Orders",
         path: "/user/orders"
     },
     {
-        icons: <IoListOutline />,
+        icons: <LiaCartPlusSolid />,
         name: "My Cart",
         path: "/user/carts"
     },
@@ -108,38 +109,40 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                 aria-label="close sidebar"
                 className={`drawer-overlay ${isDrawerOpen ? '' : 'hidden'}`}
             />
-            <div className='z-30 w-80 lg:w-96 bg-base-200 min-h-screen'>
+            <div className='z-30 w-80 lg:w-96 bg-base-200 min-h-full relative'>
+                <button className='z-30 absolute top-3 left-4' onClick={handleItemClick}>
+                    <RxCross2 className='text-2xl'/>
+                </button>
                 {/* Profile Show */}
                 {
                     isAuthenticated ? (
-                        <div className='flex items-center justify-evenly gap-1 bg-primary p-2 rounded-sm'>
-                            <div className="avatar">
-                                <div className="w-14 rounded-full">
-                                    <img src={user.picture} />
+                        <div className='flex items-center justify-center bg-primary p-2'>
+                            <div className='flex items-center justify-start gap-2'>
+                                <div className="avatar">
+                                    <div className='w-12 rounded-full'>
+                                        <img src={user.picture} alt="pic" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <p className='font-semibold'>{user.name}</p>
-                                <p className=''>{user.email}</p>
+                                <Link className='w-full py-2 rounded-sm font-semibold text-slate-300' to='/user/dashboard' onClick={handleItemClick}>
+                                    Hello, {user.name}
+                                </Link>
                             </div>
                         </div>
                     )
                         :
-                        <div className='flex items-center justify-evenly gap-1 bg-primary p-2 '>
-                            {
-                                isAuthenticated ?
-                                    <button className='w-full bg-secondary py-2 rounded-sm  mt-3 text-white' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                                        Log Out
-                                    </button>
-                                    :
-                                    <button className='w-full bg-secondary py-2 rounded-sm text-white  mt-3' onClick={() => loginWithPopup()}>
-                                        Log In
-                                    </button>
-                            }
+                        <div className='flex items-center justify-center bg-primary p-2'>
+                            <div className='flex items-center justify-start gap-2'>
+                                <div className="">
+                                    <FaCircleUser className='text-4xl text-slate-400' />
+                                </div>
+                                <button className='w-full py-2 rounded-sm font-semibold text-slate-300' onClick={() => loginWithPopup()}>
+                                    Hello, Sign In
+                                </button>
+                            </div>
                         </div>
                 }
                 {/* Categoty Show */}
-                <h2 className='text-md lg:text-xl font-semibold uppercase mt-3 text-center text-slate-800'>Category List</h2>
+                <h2 className='text-md lg:text-xl font-semibold  mt-3 text-center text-slate-700'>Shop By Category</h2>
                 <div className='w-[95%] p-5'>
                     {
                         catList.map((i, index) => (
@@ -157,7 +160,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                 </div>
                 {/* user Details */}
                 <div className='w-full bg-base-300 h-[1px]'></div>
-                <h2 className='text-md lg:text-xl font-semibold uppercase mt-2 text-center text-slate-700'>user details</h2>
+                <h2 className='text-md lg:text-xl font-semibold  mt-2 text-center text-slate-700'>Help & Settings</h2>
                 <div className='w-[95%] p-5'>
                     {
                         menuLinks.map((i, index) => (
