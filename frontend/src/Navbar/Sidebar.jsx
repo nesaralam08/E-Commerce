@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { IoBag } from "react-icons/io5";
 import { FaRegLightbulb } from "react-icons/fa";
@@ -17,6 +17,7 @@ import { MdOutlineHeadsetMic } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaCircleUser } from "react-icons/fa6";
 import { CiDeliveryTruck } from "react-icons/ci";
+import axios from 'axios'
 const catList = [
     {
         icons: <IoBag />,
@@ -101,6 +102,13 @@ const menuLinks = [
 ]
 function Sidebar({ isDrawerOpen, handleItemClick }) {
     const { isAuthenticated, user, loginWithPopup, logout, isLoading } = useAuth0()
+    const [result,setResult] = useState({})
+    // const navigate = useNavigate()
+    if(isAuthenticated){
+        const userdata = {name:user.name,email:user.email,picture:user.picture}
+        axios.post('http://localhost:4000/api/user/add-user',userdata)
+        .then((d)=>setResult(d.data.result))
+    }
     return (
         <div className="drawer-side z-30">
             {/* Close button for the drawer */}
@@ -120,7 +128,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                             <div className='flex items-center justify-start gap-2'>
                                 <div className="avatar">
                                     <div className='w-12 rounded-full'>
-                                        <img src={user.picture} alt="pic" />
+                                        <img src={user.picture} alt="" />
                                     </div>
                                 </div>
                                 <Link className='w-full py-2 rounded-sm font-semibold text-slate-300' to='/user/dashboard' onClick={handleItemClick}>

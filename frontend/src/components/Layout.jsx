@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
         <Routers/>
-        <Footer/>
+        {/* <Footer/> */}
     </>
   )
 }

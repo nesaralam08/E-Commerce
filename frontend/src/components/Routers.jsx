@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Home, Dashboard, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday } from '../pages/GlobalPage'
+import { Home, Dashboard, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory} from '../pages/GlobalPage'
 import Navbar from '../Navbar/Navbar'
+import Footer from '../footer/Footer'
 
 function Routers() {
   return (
@@ -15,10 +16,8 @@ function Routers() {
           <Route path='carts' element={<PrivateRoute Component={Cart}/>}></Route>
           <Route path='orders' element={<PrivateRoute Component={Orders}/>}></Route>
           <Route path='profile' element={<PrivateRoute Component={Profile}/>}></Route>
-          {/* <Route path='settings' element={<Settings />}></Route> */}
-          {/* <Route path='delivery-address' element={<Address/>}></Route> */}
         </Route>
-        <Route path='/category' element={null}>
+        <Route path='/category' element={<AllCategory/>}>
           <Route path='fashion' element={<Fashion />}></Route>
           <Route path='electronics' element={<Electronics />}></Route>
           <Route path='computers-and-office' element={<Computers />}></Route>
@@ -37,6 +36,7 @@ function Routers() {
         <Route path='/deal-of-the-day' element={<Dealoftheday/>}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

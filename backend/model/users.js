@@ -10,10 +10,20 @@ const user = mongoose.Schema({
         require: true,
         unique: true,
     },
-    phone:{
-        type:Number,
+    gender:{
+        type:String,
         require:true,
-        unique:true
+        enum:['male','female','custom','not-select'],
+        default:'not-select'
+    },
+    mobile_no:{
+        type:String,
+        require:false,
+        default:"null",
+    },
+    picture:{
+        type:String,
+        require:false,
     },
     status:{
         type:String,
