@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const nanoid = require('nanoid')
+const {nanoid} = require('nanoid')
 const product = mongoose.Schema({
     product_name:{
         type:String,
@@ -9,7 +9,7 @@ const product = mongoose.Schema({
         type:String,
         require:true,
         default:nanoid(10),
-        unique:true
+        // unique:true
     },
     price:{
         type:Number,
@@ -31,7 +31,7 @@ const product = mongoose.Schema({
         type:String,
         require:true,
         enum:['active','deactive'],
-        default:"activate"
+        default:"active"
     },
     category_id:{
         type:mongoose.Schema.Types.ObjectId,

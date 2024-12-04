@@ -23,6 +23,10 @@ const navLinks = [
     name: "Deal of the day",
     path: "/deal-of-the-day"
   },
+  {
+    name:"Categories",
+    path:"/all-categories"
+  }
 ]
 function Navbar() {
   const { user, isAuthenticated, loginWithPopup, logout, isLoading } = useAuth0();
@@ -42,7 +46,7 @@ function Navbar() {
             onChange={() => setIsDrawerOpen(!isDrawerOpen)}
           />
           <nav>
-            <div className='px-6 flex justify-between items-center py-4'>
+            <div className='px-6 flex justify-between items-center py-4 bg-[url(./assets/header-bg.png)] bg-no-repeat bg-cover'>
               <Link className='text-2xl flex items-center gap-2 font-bold uppercase' to='/'>
                 <FiShoppingBag />
                 <p className='text-[18px] md:text-[24px]'>Alam</p>

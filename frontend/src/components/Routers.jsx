@@ -17,7 +17,8 @@ function Routers() {
           <Route path='orders' element={<PrivateRoute Component={Orders}/>}></Route>
           <Route path='profile' element={<PrivateRoute Component={Profile}/>}></Route>
         </Route>
-        <Route path='/category' element={<AllCategory/>}>
+        <Route path='/all-categories' element={<AllCategory/>}></Route>
+        <Route path='/category' element={null}>
           <Route path='fashion' element={<Fashion />}></Route>
           <Route path='electronics' element={<Electronics />}></Route>
           <Route path='computers-and-office' element={<Computers />}></Route>
