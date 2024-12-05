@@ -6,7 +6,7 @@ function AllCategory() {
       <section className=' bg-[url(./assets/hero-bg.png)] bg-no-repeat bg-cover min-h-screen h-auto'>
         <div className='container grid xl:grid-cols-3 py-5 gap-5 md:grid-cols-2 grid-cols-1'>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://rukminim2.flixcart.com/image/1000/1000/xif0q/t-shirt/z/c/2/s-723-1-3-6-8-ftx-original-imah7fxhfdbnz4f3.jpeg?q=70&crop=false"
@@ -21,7 +21,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://m.media-amazon.com/images/I/71708U5mylL._SX679_.jpg"
@@ -37,7 +37,7 @@ function AllCategory() {
           </div>
 
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://m.media-amazon.com/images/I/61XGBj3X18L._SX679_.jpg"
@@ -52,7 +52,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://images.unsplash.com/photo-1542549237432-a176cb9d5e5e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8" />
@@ -66,7 +66,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://images.unsplash.com/photo-1570676765227-b25aa08d9752?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIzfHx8ZW58MHx8fHx8" />
@@ -80,7 +80,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://rukminim2.flixcart.com/image/612/612/kwb07m80/kit/b/3/p/dsc-economy-full-size-ideal-for-15-21-years-complete-dsc-original-imag9yrqywzkuyuf.jpeg?q=70" />
@@ -94,7 +94,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://rukminim2.flixcart.com/image/612/612/xif0q/nut-dry-fruit/o/j/s/750-nuts-dry-fruit-combo-pack-healthy-snack-food-item-high-in-original-imah5ea5zpeywtvf.jpeg?q=70" />
@@ -108,7 +108,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://rukminim2.flixcart.com/image/612/612/xif0q/ayurvedic/h/p/n/-original-imagmdfxhzsbkseu.jpeg?q=70" />
@@ -122,7 +122,7 @@ function AllCategory() {
             </div>
           </div>
 
-          <div className="card bg-base-100 w-full md:w-96 shadow-xl">
+          <div className="card bg-base-100 w-full md:w-80 shadow-xl">
             <figure className='max-h-52'>
               <img
                 src="https://rukminim2.flixcart.com/image/612/612/xif0q/moisturizer-cream/u/2/9/-original-imagxyfdggfqqufv.jpeg?q=70" />

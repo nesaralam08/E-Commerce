@@ -4,7 +4,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import Sidebar from '../Navbar/Sidebar';
-import CartPage from './CartPage';
+// import CartPage from './CartPage';
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 const navLinks = [
   {
@@ -30,7 +30,6 @@ const navLinks = [
 ]
 function Navbar() {
   const { user, isAuthenticated, loginWithPopup, logout, isLoading } = useAuth0();
-  const [open, setOpen] = useState(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -49,15 +48,15 @@ function Navbar() {
             <div className='px-6 flex justify-between items-center py-4 bg-[url(./assets/header-bg.png)] bg-no-repeat bg-cover'>
               <Link className='text-2xl flex items-center gap-2 font-bold uppercase' to='/'>
                 <FiShoppingBag />
-                <p className='text-[18px] md:text-[24px]'>Alam</p>
-                <p className='text-primary text-[18px] md:text-[24px]'>Bazaar</p>
+                <p className='text-[18px] md:text-[20px]'>Alam</p>
+                <p className='text-primary text-[18px] md:text-[20px]'>Bazaar</p>
               </Link>
               {/* menu list */}
               <div className='hidden lg:block'>
                 <ul className='flex items-center lg:gap-6 text-gray-600'>
                   {
                     navLinks.map((i, index) => (
-                      <li key={index} className='font-semibold text-sm lg:text-sm xl:text-lg hover:text-primary'><NavLink to={i.path} className={({ isActive }) => isActive ? "text-primary" : ""}>{i.name}</NavLink></li>
+                      <li key={index} className='font-semibold text-sm lg:text-sm xl:text-md hover:text-primary'><NavLink to={i.path} className={({ isActive }) => isActive ? "text-primary" : ""}>{i.name}</NavLink></li>
                     ))
                   }
                 </ul>
@@ -79,9 +78,9 @@ function Navbar() {
                 </label>
                 {
                   isAuthenticated ?
-                    <button className='text-2xl hover:bg-primary hover:text-white rounded-full p-2' onClick={() => setOpen("cart")}>
+                    <Link className='text-2xl hover:bg-primary hover:text-white rounded-full p-2' to='/user/carts'>
                       <PiShoppingCartThin />
-                    </button>
+                    </Link>
                     :
                     <button className='hover:bg-primary text-primary font-semibold hover:text-white rounded-sm text-[12px] border-primary px-3 py-[2px] duration-200' onClick={() => loginWithPopup()}>
                       {
@@ -116,12 +115,12 @@ function Navbar() {
         </div>
       </div>
 
-      {
+      {/* {
         open === "category" && <CategoryMenu onClose={() => setOpen(null)} />
       }
       {
         open == "cart" && <CartPage onClose={() => setOpen(null)} />
-      }
+      } */}
 
     </>
   )

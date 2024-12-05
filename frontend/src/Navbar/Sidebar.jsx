@@ -18,6 +18,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { FaCircleUser } from "react-icons/fa6";
 import { CiDeliveryTruck } from "react-icons/ci";
 import axios from 'axios'
+import { handleError } from '../utils/ReactToast';
 const catList = [
     {
         icons: <IoBag />,
@@ -102,12 +103,18 @@ const menuLinks = [
 ]
 function Sidebar({ isDrawerOpen, handleItemClick }) {
     const { isAuthenticated, user, loginWithPopup, logout, isLoading } = useAuth0()
-    const [result,setResult] = useState({})
+    const [result, setResult] = useState({})
     // const navigate = useNavigate()
-    if(isAuthenticated){
-        const userdata = {name:user.name,email:user.email,picture:user.picture}
-        axios.post('http://localhost:4000/api/user/add-user',userdata)
-        .then((d)=>setResult(d.data.result))
+    if (isAuthenticated) {
+        const userdata = { name: user.name, email: user.email, picture: user.picture }
+        axios.post('http://localhost:4000/api/user/add-user', userdata)
+            .then((d) => localStorage.setItem("uid", d.data.result._id))
+            .catch((e) => handleError(e))
+    }
+    const handleLogout = () => {
+        localStorage.setItem("uid","")
+        logout({ logoutParams: { returnTo: window.location.origin } })
+
     }
     return (
         <div className="drawer-side z-30">
@@ -118,8 +125,8 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                 className={`drawer-overlay ${isDrawerOpen ? '' : 'hidden'}`}
             />
             <div className='z-30 w-80 lg:w-96 bg-base-200 min-h-full relative'>
-                <button className='z-30 absolute top-3 left-4' onClick={handleItemClick}>
-                    <RxCross2 className='text-2xl'/>
+                <button className='z-30 absolute top-3 left-4 text-slate-900' onClick={handleItemClick}>
+                    <RxCross2 className='text-2xl font-semibold hover:bg-light hover:rounded-full' />
                 </button>
                 {/* Profile Show */}
                 {
@@ -184,7 +191,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                     }
                     {
                         isAuthenticated ?
-                            <button className='w-full bg-secondary py-2 rounded-sm hover:bg-primary  mt-3 text-white' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            <button className='w-full bg-secondary py-2 rounded-sm hover:bg-primary  mt-3 text-white' onClick={handleLogout}>
                                 Log Out
                             </button>
                             :

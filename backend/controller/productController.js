@@ -26,4 +26,13 @@ const getPrById = async(req,res)=>{
         res.status(500).send({ success: false, message: 'An error occurred', result: error });
     }
 }
-module.exports = {addProduct,getPrById}
+const getAllPr = async(req,res)=>{
+    try {
+        const result = await productModel.find({})
+        // console.log(result)
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+module.exports = {addProduct,getPrById,getAllPr}
