@@ -35,4 +35,13 @@ const getAllPr = async(req,res)=>{
         res.status(500).send({ success: false, message: 'An error occurred', result: error });
     }
 }
-module.exports = {addProduct,getPrById,getAllPr}
+const getAllFashionPr = async(req,res)=>{
+    try {
+        const {fid} = req.query
+        const result = await productModel.find({category_id:fid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+module.exports = {addProduct,getPrById,getAllPr,getAllFashionPr}

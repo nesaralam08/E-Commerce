@@ -19,7 +19,7 @@ function Home() {
     <>
       <SwiperPage />
       <section className='min-h-screen h-auto'>
-        <div className='container grid xl:grid-cols-4 -mt-56 py-5 gap-5 md:grid-cols-2 grid-cols-1'>
+        <div className='container grid xl:grid-cols-4 xl:-mt-56 md:-mt-28 py-5 gap-5 md:grid-cols-2 grid-cols-1'>
           {
             product.map((i,index)=>(
               <ProductCard key={index} data={i}/>

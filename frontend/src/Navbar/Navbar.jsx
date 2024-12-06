@@ -98,7 +98,7 @@ function Navbar() {
           </nav>
           <Sidebar isDrawerOpen={isDrawerOpen} handleItemClick={() => setIsDrawerOpen(false)} />
         </div>
-        <div className='xl:hidden mx-4 mb-2 hover:bg-base-200'>
+        <div className='xl:hidden mx-4 mb-2 mt-2 hover:bg-base-200'>
           <label className="input input-bordered flex items-center gap-2">
             <input type="text" className="grow" placeholder="Search for Products, Brands and More" />
             <svg

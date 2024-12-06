@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { handleSuccess } from '../utils/ReactToast'
+import {Link} from 'react-router-dom'
 function Cart() {
   const [cartItem, setCartItem] = useState([])
   const getItem = () => {
@@ -23,6 +24,17 @@ function Cart() {
         <div className='grid xl:grid-cols-3 grid-cols-1 h-full w-full px-6 gap-4 py-4 bg-slate-100'>
           <div className=' col-span-2 overflow-y-auto scrollbar-hide p-4 max-h-screen bg-white'>
             {/* Item Details */}
+            {
+               cartItem.length > 0 ? null: <div className='flex flex-col md:flex-row items-center justify-evenly '>
+                  <figure>
+                    <img src="https://m.media-amazon.com/images/G/31/cart/empty/kettle-desaturated._CB424694257_.svg" alt="" className='h-96 w-96' />
+                  </figure>
+                  <div>
+                    <h1 className='text-2xl mb-6 font-semibold'>Your cart is empty</h1>
+                    <Link className='px-10 py-2 bg-primary rounded-sm' to="/">Shop Now</Link>
+                  </div>
+               </div>
+            }
 
 
             {
@@ -51,16 +63,19 @@ function Cart() {
             </div>
             <div className='w-full px-3 py-3 flex flex-col gap-3'>
               <div className='flex items-center justify-between w-full'><p>Price({cartItem.length} items)</p> <p>₹{total}</p></div>
-              <div className='flex items-center justify-between w-full'><p>Discount </p> <p>-₹5</p></div>
-              <div className='flex items-center justify-between w-full'><p>Coupons for you</p> <p>-₹15</p></div>
+              <div className='flex items-center justify-between w-full'><p>Discount </p> <p>₹0.00</p></div>
+              <div className='flex items-center justify-between w-full'><p>Coupons for you</p> <p>₹0.00</p></div>
               <div className='flex items-center justify-between w-full'><p>Platform fee</p> <p>+₹3</p></div>
-              <div className='flex items-center justify-between w-full'><p>Delivery Charges 1</p> <p><del>₹40</del> Free</p></div>
+              <div className='flex items-center justify-between w-full'><p>Delivery Charges</p> <p><del>₹40</del> Free</p></div>
               <hr />
-              <div className='flex items-center justify-between w-full'><p className='text-lg font-semibold'>Total </p> <p className='text-lg font-semibold'>₹{total-17}</p></div>
+              <div className='flex items-center justify-between w-full'><p className='text-lg font-semibold'>Total </p> <p className='text-lg font-semibold'>₹{ cartItem.length>0?total+3:total}</p></div>
               <hr />
-              <p className='text-primary'>You will save ₹17 on this order</p>
+              <p className='text-primary'>You will save ₹0 on this order</p>
             </div>
-            <button className='w-1/2 btn btn-primary'>Place Order</button>
+            {
+              cartItem.length >0?<button className='w-1/2 btn btn-primary'>Place Order</button>:<button className='w-1/2 btn btn-primary disabled cursor-not-allowed'>Place Order</button>
+            }
+            
           </div>
 
         </div>
