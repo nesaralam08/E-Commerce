@@ -44,4 +44,67 @@ const getAllFashionPr = async(req,res)=>{
         res.status(500).send({ success: false, message: 'An error occurred', result: error });
     }
 }
-module.exports = {addProduct,getPrById,getAllPr,getAllFashionPr}
+const getAllElectronicsPr = async(req,res)=>{
+    try {
+        const {eid} = req.query
+        const result = await productModel.find({category_id:eid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllBooksPr = async(req,res)=>{
+    try {
+        const {bid} = req.query
+        const result = await productModel.find({category_id:bid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllComputersPr = async(req,res)=>{
+    try {
+        const {cid} = req.query
+        const result = await productModel.find({category_id:cid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllGamingsPr = async(req,res)=>{
+    try {
+        const {gid} = req.query
+        const result = await productModel.find({category_id:gid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllGroceryPr = async(req,res)=>{
+    try {
+        const {gid} = req.query
+        const result = await productModel.find({category_id:gid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllHealthPr = async(req,res)=>{
+    try {
+        const {hid} = req.query
+        const result = await productModel.find({category_id:hid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+const getAllSportsPr = async(req,res)=>{
+    try {
+        const {sid} = req.query
+        const result = await productModel.find({category_id:sid})
+        res.status(200).send({ success: true, message: 'Product Fetch Sucessfully', result: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+module.exports = {addProduct,getPrById,getAllPr,getAllFashionPr,getAllElectronicsPr,getAllBooksPr,getAllComputersPr,getAllGamingsPr,getAllGroceryPr,getAllHealthPr,getAllSportsPr}

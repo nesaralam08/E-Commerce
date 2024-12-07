@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Home, Dashboard, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory} from '../pages/GlobalPage'
+import { Home, Dashboard,ItemPage, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory} from '../pages/GlobalPage'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../footer/Footer'
 
@@ -28,6 +28,7 @@ function Routers() {
           <Route path='food-and-grocery' element={<Grocery />}></Route>
           <Route path='health-and-beauty' element={<Health />}></Route>
         </Route>
+        <Route path='/item/:url' element={<ItemPage/>}></Route>
         <Route path='/settings' element={<Settings/>}></Route>
         <Route path='/services' element={<Services/>}></Route>
         <Route path='/voucher' element={<Voucher/>}></Route>

@@ -11,7 +11,6 @@ function Cart() {
   useEffect(() => {
     getItem()
   }, [getItem])
-
   const handleRemove = (uid) => {
     axios.delete(`http://localhost:4000/api/cart/delete-one?uid=${uid}`)
       .then((d) => handleSuccess(d.data.message))
@@ -43,8 +42,9 @@ function Cart() {
                   <figure>
                     <img src={i.product_id.image_url} alt="" className='h-24 min-w-24' />
                   </figure>
+                  
                   <div className='w-full'>
-                    <p className='text-sm font-semibold'>{i.product_id.description}</p>
+                    <Link className='text-xs lg:text-sm font-semibold hover:text-primary' to={`/item/${i.product_id.url}?itemid=${i.product_id._id}`}>{i.product_id.description}</Link>
                     <p className='text-sm'>SELLER : Alam Bazaar</p>
                     <p className='text-md font-semibold'>₹{i.product_id.price}</p>
                     {/* {total+=i.product_id.price} */}

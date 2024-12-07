@@ -3,6 +3,8 @@ import {handleError, handleSuccess} from '../utils/ReactToast'
 import { useAuth0 } from '@auth0/auth0-react'
 import { BsCartPlus } from "react-icons/bs";
 import axios from 'axios';
+import { Link} from 'react-router-dom';
+
 function ProductCard({ data }) {
     const { isAuthenticated, user, isLoading } = useAuth0()
     const handleCart = (id) => {
@@ -26,11 +28,11 @@ function ProductCard({ data }) {
             {/* </a> */}
             <div className="px-5 pb-5">
                 {/* <a href="#"> */}
-                <h5 className="text-lg font-semibold tracking-tight text-gray-900">
+                <Link className="text-lg font-semibold tracking-tight text-gray-900 hover:text-primary" to={`/item/${data.url}?itemid=${data._id}`}>
                     {
                         data.description
                     }
-                </h5>
+                </Link>
                 {/* </a> */}
                 <div className="flex items-center mt-2.5 mb-5">
                     <div className="flex items-center space-x-1 rtl:space-x-reverse">
