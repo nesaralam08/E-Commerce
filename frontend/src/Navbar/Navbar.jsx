@@ -115,13 +115,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* {
-        open === "category" && <CategoryMenu onClose={() => setOpen(null)} />
-      }
-      {
-        open == "cart" && <CartPage onClose={() => setOpen(null)} />
-      } */}
-
     </>
   )
 }

@@ -24,6 +24,7 @@ const user = mongoose.Schema({
     picture:{
         type:String,
         require:false,
+        default:"null"
     },
     status:{
         type:String,

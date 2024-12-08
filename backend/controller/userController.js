@@ -3,7 +3,7 @@ const userModel = require('../model/users')
 
 const addUser = async (req, res) => {
     try {
-        const { name, email} = req.body;
+        const { name, email,picture} = req.body;
         // console.log(name,email)
         
         const check = await userModel.findOne({ email: email });
@@ -14,7 +14,8 @@ const addUser = async (req, res) => {
 
         const userData = {
             name: name,
-            email: email
+            email: email,
+            picture:picture
         };
 
         const user = new userModel(userData);
@@ -31,7 +32,10 @@ const addUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        res.send("working")
+        const {_id,name,gender,mobile_no} = req.body
+        const result = await userModel.findByIdAndUpdate(_id,{$set:{name:name,gender:gender,mobile_no:mobile_no}},{new:true})
+        res.status(201).send({ success: true, message: 'User updated successfully', result });
+
     } catch (error) {
         res.status(400).json({
             sucess: false,
@@ -40,4 +44,13 @@ const updateUser = async (req, res) => {
     }
 }
 
-module.exports = { addUser, updateUser }
+const getUserById = async(req,res)=>{
+    try {
+        const {uid} = req.query
+        const result = await userModel.findOne({_id:uid})
+        res.status(201).send({ success: true, message: 'User fetch successfully', result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'An error occurred', result: error });
+    }
+}
+module.exports = { addUser, updateUser ,getUserById}
