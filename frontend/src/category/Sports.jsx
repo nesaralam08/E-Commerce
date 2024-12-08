@@ -5,7 +5,7 @@ function Sports() {
     const [sportitem,setSportItem] = useState([])
     useEffect(()=>{
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-sports?sid=${"674ec3fa3441b8de1b6b32cd"}`)
-            .then((d) => setSportItem(d.data.result))
+            .then((d) => setSportItem(d.data.result || []))
     })
     return (
         <>

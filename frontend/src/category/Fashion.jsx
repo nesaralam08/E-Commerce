@@ -5,7 +5,7 @@ function Fashion() {
     const [fashionItem, setFashionItem] = useState([])
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-fashion?fid=${"674ec3653441b8de1b6adb2c"}`)
-            .then((d) => setFashionItem(d.data.result))
+            .then((d) => setFashionItem(d.data.result || []))
     }, [])
     return (
         <>

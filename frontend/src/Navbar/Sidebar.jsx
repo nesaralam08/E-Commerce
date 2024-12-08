@@ -107,10 +107,10 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
     // const navigate = useNavigate()
     if (isAuthenticated) {
         const userdata = { name: user.name, email: user.email, picture: user.picture }
-        const baseURL = import.meta.env.VITE_BASE_URL
-        console.log(baseURL)
-        axios.post(`${baseURL}/api/user/add-user`, userdata)
-            .then((d) => localStorage.setItem("uid", d.data.result._id))
+        // const baseURL = import.meta.env.VITE_BASE_URL
+        // console.log(baseURL)
+        axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/add-user`, userdata)
+            .then((d) => localStorage.setItem("uid", d.data.result._id ||{}))
             .catch((e) => handleError(e))
     }
     const handleLogout = () => {

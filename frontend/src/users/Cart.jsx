@@ -6,7 +6,7 @@ function Cart() {
   const [cartItem, setCartItem] = useState([])
   const getItem = () => {
     axios.get(`${import.meta.env.VITE_BASE_URL}/api/cart/get-all?uid=${localStorage.getItem("uid")}`)
-      .then((d) => setCartItem(d.data.result))
+      .then((d) => setCartItem(d.data.result || []))
   }
   useEffect(() => {
     getItem()

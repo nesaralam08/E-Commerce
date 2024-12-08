@@ -13,7 +13,7 @@ function Home() {
   const [product, setProduct] = useState([])
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
-      .then((d) => setProduct(d.data.result))
+      .then((d) => setProduct(d.data.result || []))
   }, [])
   return (
 

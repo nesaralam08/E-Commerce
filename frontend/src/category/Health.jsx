@@ -5,7 +5,7 @@ function Health() {
     const [healthitem,setHealthItem] = useState([])
     useEffect(()=>{
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-health?hid=${"674ec4103441b8de1b6b4236"}`)
-            .then((d) => setHealthItem(d.data.result))
+            .then((d) => setHealthItem(d.data.result || []))
     })
     return (
         <>

@@ -4,9 +4,9 @@ import ProductCard from '../utils/ProductCard'
 function Books() {
     const [books,setBooks] = useState([])
     useEffect(()=>{
-        const baseURL = import.meta.env.VITE_BASE_URL
-        axios.get(`${baseURL}/api/product/get-all-books?bid=${"674ec3de3441b8de1b6b2103"}`)
-            .then((d) => setBooks(d.data.result))
+        // const baseURL = import.meta.env.VITE_BASE_URL
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-books?bid=${"674ec3de3441b8de1b6b2103"}`)
+            .then((d) => setBooks(d.data.result || []))
     })
     return (
         <>

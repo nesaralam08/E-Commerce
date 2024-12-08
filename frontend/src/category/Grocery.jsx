@@ -5,7 +5,7 @@ function Grocery() {
     const [grocery,setGrocery] = useState([])
     useEffect(()=>{
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-grocery?gid=${"674ec4063441b8de1b6b3b21"}`)
-            .then((d) => setGrocery(d.data.result))
+            .then((d) => setGrocery(d.data.result || []))
     })
     return (
         <>

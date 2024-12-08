@@ -6,7 +6,7 @@ function Computers() {
     useEffect(()=>{
         // const baseURL = import.meta.env.VITE_BASE_URL
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-computers?cid=${"674ec3cf3441b8de1b6b180b"}`)
-            .then((d) => setComputers(d.data.result))
+            .then((d) => setComputers(d.data.result || []))
     })
     return (
         <>

@@ -23,14 +23,14 @@ function ItemPage() {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-pr?sid=${itemid}`)
             .then((d) => {
-                setitem(d.data.result)
+                setitem(d.data.result || {})
                 setLoading(false)
             })
     }, [itemid])
     const [product, setProduct] = useState([])
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
-            .then((d) => setProduct(d.data.result))
+            .then((d) => setProduct(d.data.result || []))
     }, [])
     const handleCart = (id) => {
         // console.log(id)

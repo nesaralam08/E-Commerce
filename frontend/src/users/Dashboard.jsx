@@ -13,7 +13,7 @@ function Dashboard() {
   const [userdata, setUserdata] = useState({})
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/get-user?uid=${userid}`)
-      .then((d) => setUserdata(d.data.result))
+      .then((d) => setUserdata(d.data.result || {}))
   }, [])
   const handleLogout = () => {
     localStorage.setItem("uid", "")
@@ -26,7 +26,7 @@ function Dashboard() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/update-user`,userdata)
-    .then((d)=>setUserdata(d.data.result))
+    .then((d)=>setUserdata(d.data.result || {}))
   }
   return (
     <>
