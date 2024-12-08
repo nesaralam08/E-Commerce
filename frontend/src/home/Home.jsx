@@ -7,6 +7,7 @@ import { handleError } from '../utils/ReactToast'
 import { BsCartPlus } from "react-icons/bs";
 import axios from 'axios';
 import ProductCard from '../utils/ProductCard';
+import PageLoading from '../components/PageLoading'
 function Home() {
   const { isAuthenticated, user, isLoading } = useAuth0()
   const [product, setProduct] = useState([])
@@ -21,9 +22,10 @@ function Home() {
       <section className='min-h-screen h-auto'>
         <div className='container grid xl:grid-cols-4 xl:-mt-56 md:-mt-28 py-5 gap-5 md:grid-cols-2 grid-cols-1'>
           {
-            product.map((i,index)=>(
-              <ProductCard key={index} data={i}/>
+            product.length > 0 ? product.map((i, index) => (
+              <ProductCard key={index} data={i} />
             ))
+            : <PageLoading/>
           }
         </div>
       </section>
