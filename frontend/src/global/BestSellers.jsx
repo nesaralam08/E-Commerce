@@ -17,7 +17,7 @@ function BestSellers() {
                         ))
                             :
                             <div className='min-h-screen w-full flex items-center justify-center'>
-                                <h1 className='text-xl font-semibold xl:text-3xl text-slate-500'>No item available in Best Sellers</h1>
+                                <h1 className='text-xl font-semibold xl:text-3xl text-slate-400'>No item available in Best Sellers</h1>
                             </div>
                     }
                 </div>
