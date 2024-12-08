@@ -108,7 +108,7 @@ function Dashboard() {
                 <div className='flex flex-col gap-3'>
                   <h4 className='text-md'>Your Gender</h4>
                   <select className="select select-bordered w-full max-w-xs" name='gender' value={userdata.gender} onChange={handleChange}>
-                    <option disabled>select your gender</option>
+                    <option disabled selected>select your gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Custom">Custom</option>
