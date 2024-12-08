@@ -11,7 +11,7 @@ function Home() {
   const { isAuthenticated, user, isLoading } = useAuth0()
   const [product, setProduct] = useState([])
   useEffect(() => {
-    axios.get("http://localhost:4000/api/product/get-all")
+    axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
       .then((d) => setProduct(d.data.result))
   }, [])
   return (

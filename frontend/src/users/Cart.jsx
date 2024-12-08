@@ -5,14 +5,14 @@ import {Link} from 'react-router-dom'
 function Cart() {
   const [cartItem, setCartItem] = useState([])
   const getItem = () => {
-    axios.get(`http://localhost:4000/api/cart/get-all?uid=${localStorage.getItem("uid")}`)
+    axios.get(`${import.meta.env.VITE_BASE_URL}/api/cart/get-all?uid=${localStorage.getItem("uid")}`)
       .then((d) => setCartItem(d.data.result))
   }
   useEffect(() => {
     getItem()
   }, [getItem])
   const handleRemove = (uid) => {
-    axios.delete(`http://localhost:4000/api/cart/delete-one?uid=${uid}`)
+    axios.delete(`${import.meta.env.VITE_BASE_URL}/api/cart/delete-one?uid=${uid}`)
       .then((d) => handleSuccess(d.data.message))
     getItem()
   }

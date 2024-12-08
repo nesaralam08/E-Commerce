@@ -21,7 +21,7 @@ function ItemPage() {
     const [item, setitem] = useState({})
     const { isAuthenticated } = useAuth0()
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/product/get-pr?sid=${itemid}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-pr?sid=${itemid}`)
             .then((d) => {
                 setitem(d.data.result)
                 setLoading(false)
@@ -29,7 +29,7 @@ function ItemPage() {
     }, [itemid])
     const [product, setProduct] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:4000/api/product/get-all")
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
             .then((d) => setProduct(d.data.result))
     }, [])
     const handleCart = (id) => {
@@ -38,7 +38,7 @@ function ItemPage() {
             handleError("Login Now !")
         }
         if (isAuthenticated) {
-            axios.post(`http://localhost:4000/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
+            axios.post(`${import.meta.env.VITE_BASE_URL}/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
                 .then((d) => handleSuccess(d.data.message))
                 .catch((e) => handleError(e.response.data.message))
         }

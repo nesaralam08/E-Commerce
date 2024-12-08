@@ -107,7 +107,9 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
     // const navigate = useNavigate()
     if (isAuthenticated) {
         const userdata = { name: user.name, email: user.email, picture: user.picture }
-        axios.post('http://localhost:4000/api/user/add-user', userdata)
+        const baseURL = import.meta.env.VITE_BASE_URL
+        console.log(baseURL)
+        axios.post(`${baseURL}/api/user/add-user`, userdata)
             .then((d) => localStorage.setItem("uid", d.data.result._id))
             .catch((e) => handleError(e))
     }

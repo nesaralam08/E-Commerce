@@ -4,7 +4,7 @@ import ProductCard from '../utils/ProductCard'
 function Grocery() {
     const [grocery,setGrocery] = useState([])
     useEffect(()=>{
-        axios.get(`http://localhost:4000/api/product/get-all-grocery?gid=${"674ec4063441b8de1b6b3b21"}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-grocery?gid=${"674ec4063441b8de1b6b3b21"}`)
             .then((d) => setGrocery(d.data.result))
     })
     return (

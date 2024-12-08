@@ -4,7 +4,7 @@ import ProductCard from '../utils/ProductCard'
 function Electronics() {
     const [elctronics, setElectronics] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/product/get-all-electronics?eid=${"674ec3a33441b8de1b6afb96"}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-electronics?eid=${"674ec3a33441b8de1b6afb96"}`)
             .then((d) => setElectronics(d.data.result))
     }, [])
     return (

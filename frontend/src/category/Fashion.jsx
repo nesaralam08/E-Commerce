@@ -4,7 +4,7 @@ import ProductCard from '../utils/ProductCard'
 function Fashion() {
     const [fashionItem, setFashionItem] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/product/get-all-fashion?fid=${"674ec3653441b8de1b6adb2c"}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-fashion?fid=${"674ec3653441b8de1b6adb2c"}`)
             .then((d) => setFashionItem(d.data.result))
     }, [])
     return (

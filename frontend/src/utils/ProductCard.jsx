@@ -12,7 +12,7 @@ function ProductCard({ data }) {
             handleError("Login Now !")
         }
         if(isAuthenticated){
-        axios.post(`http://localhost:4000/api/cart/add-item`,{pid:id,uid:localStorage.getItem("uid")})
+        axios.post(`${import.meta.env.VITE_BASE_URL}/api/cart/add-item`,{pid:id,uid:localStorage.getItem("uid")})
         .then((d)=>handleSuccess(d.data.message))
         .catch((e)=>handleError(e.response.data.message))
         }

@@ -4,7 +4,8 @@ import ProductCard from '../utils/ProductCard'
 function Books() {
     const [books,setBooks] = useState([])
     useEffect(()=>{
-        axios.get(`http://localhost:4000/api/product/get-all-books?bid=${"674ec3de3441b8de1b6b2103"}`)
+        const baseURL = import.meta.env.VITE_BASE_URL
+        axios.get(`${baseURL}/api/product/get-all-books?bid=${"674ec3de3441b8de1b6b2103"}`)
             .then((d) => setBooks(d.data.result))
     })
     return (

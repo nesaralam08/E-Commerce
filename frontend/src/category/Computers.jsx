@@ -4,7 +4,8 @@ import ProductCard from '../utils/ProductCard'
 function Computers() {
     const [computers,setComputers] = useState([])
     useEffect(()=>{
-        axios.get(`http://localhost:4000/api/product/get-all-computers?cid=${"674ec3cf3441b8de1b6b180b"}`)
+        // const baseURL = import.meta.env.VITE_BASE_URL
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-computers?cid=${"674ec3cf3441b8de1b6b180b"}`)
             .then((d) => setComputers(d.data.result))
     })
     return (
