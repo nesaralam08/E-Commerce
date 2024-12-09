@@ -14,7 +14,10 @@ function Home() {
   const [product, setProduct] = useState([])
   useEffect(() => {
     AxiosInstance.post('/api/product/get-all')
-    .then((d)=>setProduct(d.data.result))
+      .then((d) => {
+        setProduct(d.data.result)
+        console.log(d.data)
+      })
   }, [])
   return (
 
@@ -26,7 +29,7 @@ function Home() {
             product.length > 0 ? product.map((i, index) => (
               <ProductCard key={index} data={i} />
             ))
-            : <p className='text-slate-500'>Item Loading....</p>
+              : <p className='text-slate-500'>Item Loading....</p>
           }
         </div>
       </section>
