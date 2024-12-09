@@ -25,7 +25,7 @@ function Home() {
             product.length > 0 ? product.map((i, index) => (
               <ProductCard key={index} data={i} />
             ))
-            : <PageLoading/>
+            : <p className='text-slate-500'>Item Loading....</p>
           }
         </div>
       </section>
