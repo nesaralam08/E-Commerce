@@ -26,8 +26,10 @@ function Dashboard() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    AxiosInstance.post(`/api/user/update-user`,userdata)
-    .then((d)=>setUserdata(d.data.result))
+    AxiosInstance.post(`/api/user/update-user`, userdata)
+      .then((d) => {
+        setUserdata(d.data.result)
+      })
   }
   return (
     <>
