@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { handleSuccess } from '../utils/ReactToast'
 import {Link} from 'react-router-dom'
+import AxiosInstance from '../utils/AxiosInstance'
 function Cart() {
   const [cartItem, setCartItem] = useState([])
   const getItem = () => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/api/cart/get-all?uid=${localStorage.getItem("uid")}`)
-      .then((d) => setCartItem(d.data.result || []))
+    AxiosInstance.get(`/api/cart/get-all?uid=${localStorage.getItem("uid")}`)
+      .then((d) => setCartItem(d.data.result))
   }
   useEffect(() => {
     getItem()
   }, [getItem])
   const handleRemove = (uid) => {
-    axios.delete(`${import.meta.env.VITE_BASE_URL}/api/cart/delete-one?uid=${uid}`)
+    AxiosInstance.delete(`/api/cart/delete-one?uid=${uid}`)
       .then((d) => handleSuccess(d.data.message))
     getItem()
   }

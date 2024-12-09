@@ -9,6 +9,7 @@ import { LiaTrophySolid } from "react-icons/lia";
 import { useAuth0 } from '@auth0/auth0-react'
 import { handleError, handleSuccess } from '../utils/ReactToast'
 import ProductCard from './ProductCard';
+import AxiosInstance from './AxiosInstance';
 function useQuery() {
     const location = useLocation()
     return new URLSearchParams(location.search)
@@ -21,16 +22,16 @@ function ItemPage() {
     const [item, setitem] = useState({})
     const { isAuthenticated } = useAuth0()
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-pr?sid=${itemid}`)
+        AxiosInstance.get(`/api/product/get-pr?sid=${itemid}`)
             .then((d) => {
-                setitem(d.data.result || {})
+                setitem(d.data.result)
                 setLoading(false)
             })
     }, [itemid])
     const [product, setProduct] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
-            .then((d) => setProduct(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all`)
+            .then((d) => setProduct(d.data.result))
     }, [])
     const handleCart = (id) => {
         // console.log(id)
@@ -38,7 +39,7 @@ function ItemPage() {
             handleError("Login Now !")
         }
         if (isAuthenticated) {
-            axios.post(`${import.meta.env.VITE_BASE_URL}/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
+            AxiosInstance.post(`/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
                 .then((d) => handleSuccess(d.data.message))
                 .catch((e) => handleError(e.response.data.message))
         }

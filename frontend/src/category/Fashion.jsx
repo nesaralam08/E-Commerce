@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProductCard from '../utils/ProductCard'
+import AxiosInstance from '../utils/AxiosInstance'
 function Fashion() {
     const [fashionItem, setFashionItem] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-fashion?fid=${"674ec3653441b8de1b6adb2c"}`)
-            .then((d) => setFashionItem(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all-fashion?fid=${"674ec3653441b8de1b6adb2c"}`)
+            .then((d) => setFashionItem(d.data.result))
     }, [])
     return (
         <>

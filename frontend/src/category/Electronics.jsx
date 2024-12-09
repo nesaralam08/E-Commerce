@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProductCard from '../utils/ProductCard'
+import AxiosInstance from '../utils/AxiosInstance'
 function Electronics() {
     const [elctronics, setElectronics] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-electronics?eid=${"674ec3a33441b8de1b6afb96"}`)
-            .then((d) => setElectronics(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all-electronics?eid=${"674ec3a33441b8de1b6afb96"}`)
+            .then((d) => setElectronics(d.data.result))
     }, [])
     return (
         <>

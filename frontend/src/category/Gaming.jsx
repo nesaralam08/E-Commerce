@@ -1,11 +1,12 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios'
 import ProductCard from '../utils/ProductCard'
+import AxiosInstance from '../utils/AxiosInstance'
 function Gaming() {
     const [gaming,setGaming] = useState([])
     useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-gaming?gid=${"674ec3d83441b8de1b6b1da1"}`)
-            .then((d) => setGaming(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all-gaming?gid=${"674ec3d83441b8de1b6b1da1"}`)
+            .then((d) => setGaming(d.data.result))
     })
     return (
         <>

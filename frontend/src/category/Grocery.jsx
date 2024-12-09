@@ -1,11 +1,12 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios'
 import ProductCard from '../utils/ProductCard'
+import AxiosInstance from '../utils/AxiosInstance'
 function Grocery() {
     const [grocery,setGrocery] = useState([])
     useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-grocery?gid=${"674ec4063441b8de1b6b3b21"}`)
-            .then((d) => setGrocery(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all-grocery?gid=${"674ec4063441b8de1b6b3b21"}`)
+            .then((d) => setGrocery(d.data.result))
     })
     return (
         <>

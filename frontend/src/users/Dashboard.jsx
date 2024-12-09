@@ -7,13 +7,14 @@ import { IoMdWallet } from "react-icons/io";
 import { MdFolderShared } from "react-icons/md";
 import { MdPowerSettingsNew } from "react-icons/md";
 import axios from 'axios';
+import AxiosInstance from '../utils/AxiosInstance';
 function Dashboard() {
   const { user, isAuthenticated, logout } = useAuth0()
   const userid = localStorage.getItem("uid")
   const [userdata, setUserdata] = useState({})
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/get-user?uid=${userid}`)
-      .then((d) => setUserdata(d.data.result || {}))
+    AxiosInstance.get(`/api/user/get-user?uid=${userid}`)
+      .then((d) => setUserdata(d.data.result))
   }, [])
   const handleLogout = () => {
     localStorage.setItem("uid", "")
@@ -25,8 +26,8 @@ function Dashboard() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/update-user`,userdata)
-    .then((d)=>setUserdata(d.data.result || {}))
+    AxiosInstance.post(`/api/user/update-user`,userdata)
+    .then((d)=>setUserdata(d.data.result))
   }
   return (
     <>

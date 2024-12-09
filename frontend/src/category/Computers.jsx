@@ -1,12 +1,13 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios'
 import ProductCard from '../utils/ProductCard'
+import AxiosInstance from '../utils/AxiosInstance'
 function Computers() {
     const [computers,setComputers] = useState([])
     useEffect(()=>{
         // const baseURL = import.meta.env.VITE_BASE_URL
-        axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all-computers?cid=${"674ec3cf3441b8de1b6b180b"}`)
-            .then((d) => setComputers(d.data.result || []))
+        AxiosInstance.get(`/api/product/get-all-computers?cid=${"674ec3cf3441b8de1b6b180b"}`)
+            .then((d) => setComputers(d.data.result))
     })
     return (
         <>
