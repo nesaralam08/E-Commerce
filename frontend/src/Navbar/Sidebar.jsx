@@ -19,6 +19,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { CiDeliveryTruck } from "react-icons/ci";
 import axios from 'axios'
 import { handleError } from '../utils/ReactToast';
+import AxiosInstance from '../utils/AxiosInstance';
 const catList = [
     {
         icons: <IoBag />,
@@ -109,8 +110,8 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
         const userdata = { name: user.name, email: user.email, picture: user.picture }
         // const baseURL = import.meta.env.VITE_BASE_URL
         // console.log(baseURL)
-        axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/add-user`, userdata)
-            .then((d) => localStorage.setItem("uid", d.data.result._id ||{}))
+        AxiosInstance.post('/api/user/add-user', userdata)
+            .then((d) => localStorage.setItem("uid", d.data.result._id))
             .catch((e) => handleError(e))
     }
     const handleLogout = () => {
