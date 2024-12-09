@@ -8,12 +8,13 @@ import { BsCartPlus } from "react-icons/bs";
 import axios from 'axios';
 import ProductCard from '../utils/ProductCard';
 import PageLoading from '../components/PageLoading'
+import AxiosInstance from '../utils/AxiosInstance';
 function Home() {
   const { isAuthenticated, user, isLoading } = useAuth0()
   const [product, setProduct] = useState([])
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/api/product/get-all`)
-      .then((d) => setProduct(d.data.result || []))
+    AxiosInstance.post('/api/product/get-all')
+    .then((d)=>setProduct(d.data.result))
   }, [])
   return (
 
