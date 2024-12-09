@@ -13,7 +13,7 @@ function Home() {
   const { isAuthenticated, user, isLoading } = useAuth0()
   const [product, setProduct] = useState([])
   useEffect(() => {
-    AxiosInstance.post('/api/product/get-all')
+    AxiosInstance.get('/api/product/get-all')
       .then((d) => {
         setProduct(d.data.result)
         console.log(d.data)
