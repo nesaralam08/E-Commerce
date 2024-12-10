@@ -23,5 +23,6 @@ import GiftIdea from '../global/GiftIdea'
 import Dealoftheday from '../global/Dealoftheday'
 import AllCategory from '../category/AllCategory'
 import ItemPage from '../utils/ItemPage'
+import SearchResult from '../Navbar/SearchResult'
 
-export {NotFound,ItemPage,AllCategory,PrivateRoute,Dashboard,Cart,Orders,Profile,Settings,Home,Fashion,Grocery,Computers,Health,Gaming,Sports,Electronics,Books,Voucher,Services,BesSellers,NewRelease,GiftIdea,Dealoftheday};
+export {NotFound,ItemPage,AllCategory,PrivateRoute,Dashboard,Cart,Orders,Profile,Settings,Home,Fashion,Grocery,Computers,Health,Gaming,Sports,Electronics,Books,Voucher,Services,BesSellers,NewRelease,GiftIdea,Dealoftheday,SearchResult};

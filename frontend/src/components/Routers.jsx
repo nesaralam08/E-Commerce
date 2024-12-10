@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Home, Dashboard,ItemPage, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory} from '../pages/GlobalPage'
+import { Home, Dashboard,ItemPage, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory,SearchResult} from '../pages/GlobalPage'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../footer/Footer'
 
@@ -36,6 +36,7 @@ function Routers() {
         <Route path='/gift-idea' element={<GiftIdea/>}></Route>
         <Route path='/new-release' element={<NewRelease/>}></Route>
         <Route path='/deal-of-the-day' element={<Dealoftheday/>}></Route>
+        <Route path='/search-results' element={<SearchResult/>}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer/>

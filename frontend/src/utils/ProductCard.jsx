@@ -11,6 +11,7 @@ function ProductCard({ data }) {
     const handleCart = (id) => {
         setLoading(true)
         if (!isAuthenticated) {
+            setLoading(false)
             handleError("Login Now !")
         }
         if (isAuthenticated) {
@@ -19,7 +20,10 @@ function ProductCard({ data }) {
                     setLoading(false)
                     handleSuccess(d.data.message)
                 })
-                .catch((e) => handleError(e.response.data.message))
+                .catch((e) => {
+                    setLoading(false)
+                    handleError(e.response.data.message)
+                })
             // axios.post(`${import.meta.env.VITE_BASE_URL}/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
             //     .then((d) => handleSuccess(d.data.message))
             //     .catch((e) => handleError(e.response.data.message))
@@ -29,7 +33,7 @@ function ProductCard({ data }) {
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between z-10">
             {/* <a href="#"> */}
             <img
-                className="p-8 rounded-t-lg"
+                className="xl:p-8 p-12 rounded-t-lg"
                 src={data.image_url}
                 alt="product image"
             />

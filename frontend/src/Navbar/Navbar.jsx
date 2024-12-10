@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Sidebar from '../Navbar/Sidebar';
 // import CartPage from './CartPage';
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
+import SearchIItem from './SearchIItem';
 const navLinks = [
   {
     name: "Best Sellers",
@@ -63,19 +64,12 @@ function Navbar() {
               </div>
 
               <div className='flex items-center gap-4 md:gap-6'>
-                <label className="input input-bordered items-center gap-2 h-10 hidden xl:flex">
-                  <input type="text" className="grow" placeholder="Search Items" />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="h-5 w-5 opacity-70">
-                    <path
-                      fillRule="evenodd"
-                      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                      clipRule="evenodd" />
-                  </svg>
+
+                <label className="input input-bordered items-center justify-between gap-2 h-10 hidden xl:flex">
+                  <SearchIItem/>
                 </label>
+
+                {/* <SearchIItem/> */}
                 {
                   isAuthenticated ?
                     <Link className='text-2xl hover:bg-primary hover:text-white rounded-full p-2' to='/user/carts'>
@@ -99,19 +93,11 @@ function Navbar() {
           <Sidebar isDrawerOpen={isDrawerOpen} handleItemClick={() => setIsDrawerOpen(false)} />
         </div>
         <div className='xl:hidden mx-4 mb-2 mt-2 hover:bg-base-200'>
+
           <label className="input input-bordered flex items-center gap-2">
-            <input type="text" className="grow" placeholder="Search for Products, Brands and More" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="h-4 w-4 opacity-70">
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd" />
-            </svg>
+            <SearchIItem/>
           </label>
+
         </div>
       </div>
 
