@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { handleError, handleSuccess } from '../utils/ReactToast'
 import { useAuth0 } from '@auth0/auth0-react'
 import { BsCartPlus } from "react-icons/bs";
@@ -7,13 +7,18 @@ import { Link } from 'react-router-dom';
 import AxiosInstance from './AxiosInstance';
 function ProductCard({ data }) {
     const { isAuthenticated, user, isLoading } = useAuth0()
+    const [loading,setLoading] = useState(false)
     const handleCart = (id) => {
+        setLoading(true)
         if (!isAuthenticated) {
             handleError("Login Now !")
         }
         if (isAuthenticated) {
             AxiosInstance.post('/api/cart/add-item', { pid: id, uid: localStorage.getItem("uid") })
-                .then((d) => handleSuccess(d.data.message))
+                .then((d) => {
+                    setLoading(false)
+                    handleSuccess(d.data.message)
+                })
                 .catch((e) => handleError(e.response.data.message))
             // axios.post(`${import.meta.env.VITE_BASE_URL}/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
             //     .then((d) => handleSuccess(d.data.message))
@@ -97,7 +102,7 @@ function ProductCard({ data }) {
                     </span>
 
                     <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex gap-1 items-center' onClick={() => handleCart(data._id)}>
-                        <BsCartPlus className='text-lg' /> Add to cart
+                        <BsCartPlus className='text-lg' /> { loading ? <span className="loading loading-spinner loading-md"></span>: "Add to cart"}
                     </button>
                 </div>
             </div>
