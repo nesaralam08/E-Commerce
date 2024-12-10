@@ -50,7 +50,7 @@ function Cart() {
                     <p className='text-md font-semibold'>₹{i.product_id.price}</p>
                     {/* {total+=i.product_id.price} */}
                     <p className='hidden'>{total+=i.product_id.price}</p>
-                    <button className='px-6 py-1 rounded-sm bg-primary mt-2' onClick={() => handleRemove(i.user_id)}>Remove</button>
+                    <button className='px-6 py-1 rounded-sm bg-primary mt-2' onClick={() => handleRemove(i._id)}>Remove</button>
                   </div>
                 </div>
               ))

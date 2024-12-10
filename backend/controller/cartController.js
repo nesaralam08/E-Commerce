@@ -25,7 +25,7 @@ const getItemById = async(req,res)=>{
 const deleteItemById = async(req,res)=>{
     try {
         const {uid} = req.query
-        const result = await cartModel.deleteOne({user_id:uid})
+        const result = await cartModel.deleteOne({_id:uid})
         res.status(200).send({ success: true, message: 'items remove sucessfully ', result: result });
 
     } catch (error) {
