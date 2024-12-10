@@ -25,7 +25,7 @@ function SearchIItem() {
 
                 <form onClick={handleSearch} className='flex items-center justify-between w-full'>
                     <input type="text" className="grow text-sm" placeholder="Search for products...." value={query} onChange={(e) => setQuery(e.target.value)} />
-                    <button type='submit'><CiSearch className='text-xl text-slate-600' /></button>
+                    <button type='submit'><CiSearch className='text-xl text-slate-600 font-semibold' /></button>
                 </form>
             </>
         )
