@@ -25,19 +25,8 @@ function SearchIItem() {
     }
     return (
         <>
-
-<<<<<<< HEAD
-                <form onClick={handleSearch} className='flex items-center justify-between w-full'>
-                    <input type="text" className="grow text-sm" placeholder="Search for products...." value={query} onChange={(e) => setQuery(e.target.value)} />
-                    <button type='submit'><CiSearch className='text-xl text-slate-600 font-semibold' /></button>
-                </form>
-            </>
-        )
-    }
-=======
             <form onClick={handleSearch} className='flex items-center justify-between w-full'>
                 <input type="text" className="grow text-sm" placeholder="Search for products...." value={query} onChange={(e) => setQuery(e.target.value)} />
->>>>>>> development
 
                 {
                     loading ? <span className="loading loading-spinner loading-sm text-slate-400"></span> : <button type='submit'><CiSearch className='text-xl text-slate-600' /></button>
