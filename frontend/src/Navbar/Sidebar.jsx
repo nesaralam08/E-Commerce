@@ -160,7 +160,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                         </div>
                 }
                 {/* Categoty Show */}
-                <Link className='text-md lg:text-xl font-semibold  mt-3 text-center text-slate-700 underline' to="/all-categories">All Category</Link>
+                <Link className='text-md lg:text-xl font-semibold  mt-3 text-center text-slate-700 items-center' to="/all-categories">All Category</Link>
                 <div className='w-[95%] p-5'>
                     {
                         catList.map((i, index) => (
