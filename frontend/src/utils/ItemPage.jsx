@@ -21,6 +21,7 @@ function ItemPage() {
     const [loading, setLoading] = useState(true)
     const [item, setitem] = useState({})
     const { isAuthenticated } = useAuth0()
+    const [loadcart,setLoadcart] = useState(false)
     useEffect(() => {
         AxiosInstance.get(`/api/product/get-pr?sid=${itemid}`)
             .then((d) => {
@@ -39,9 +40,16 @@ function ItemPage() {
             handleError("Login Now !")
         }
         if (isAuthenticated) {
+            setLoadcart(true)
             AxiosInstance.post(`/api/cart/add-item`, { pid: id, uid: localStorage.getItem("uid") })
-                .then((d) => handleSuccess(d.data.message))
-                .catch((e) => handleError(e.response.data.message))
+                .then((d) => {
+                    setLoadcart(false) 
+                    handleSuccess(d.data.message)
+                })
+                .catch((e) => {
+                    setLoadcart(false)
+                    handleError(e.response.data.message)
+                })
         }
     }
     return (
@@ -137,7 +145,11 @@ function ItemPage() {
                                 </div>
                                 <hr />
                                 <div className='mt-5 w-full flex justify-evenly flex-col gap-2'>
-                                    <button className='btn w-full' onClick={() => handleCart(item._id)}>Add to cart</button>
+                                    <button className='btn w-full' onClick={() => handleCart(item._id)}>
+                                        {
+                                            loadcart ? <span className="loading loading-dots loading-md"></span> : "Add to cart"
+                                        }
+                                    </button>
                                     <button className='btn btn-primary w-full'>Buy Now</button>
                                 </div>
                             </div>
