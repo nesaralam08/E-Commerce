@@ -25,7 +25,6 @@ function SearchIItem() {
     }
     return (
         <>
-
             <form onClick={handleSearch} className='flex items-center justify-between w-full'>
                 <input type="text" className="grow text-sm" placeholder="Search for products...." value={query} onChange={(e) => setQuery(e.target.value)} />
 

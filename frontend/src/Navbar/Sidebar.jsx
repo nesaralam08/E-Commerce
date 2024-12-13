@@ -20,7 +20,14 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import axios from 'axios'
 import { handleError } from '../utils/ReactToast';
 import AxiosInstance from '../utils/AxiosInstance';
+import { TbCategory } from "react-icons/tb";
 const catList = [
+    {
+        icons: <TbCategory />,
+        name: "All Category",
+        tag: "Trending design to inspire you",
+        path: "/all-categories"
+    },
     {
         icons: <IoBag />,
         name: "Fashion",
@@ -98,7 +105,7 @@ const menuLinks = [
     },
     {
         icons: <IoSettingsOutline />,
-        name: "Settins",
+        name: "Settings",
         path: "/settings"
     },
 ]
@@ -160,7 +167,7 @@ function Sidebar({ isDrawerOpen, handleItemClick }) {
                         </div>
                 }
                 {/* Categoty Show */}
-                <h2 className='text-md lg:text-xl font-semibold  mt-3 text-center text-slate-700'>Shop By Category</h2>
+                <h2 className='text-md lg:text-xl font-semibold  mt-3  text-slate-700 text-center'>All Category</h2>
                 <div className='w-[95%] p-5'>
                     {
                         catList.map((i, index) => (

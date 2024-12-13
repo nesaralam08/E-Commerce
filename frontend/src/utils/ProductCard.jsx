@@ -40,7 +40,7 @@ function ProductCard({ data }) {
             {/* </a> */}
             <div className="px-5 pb-5">
                 {/* <a href="#"> */}
-                <Link className="text-lg font-semibold tracking-tight text-gray-900 hover:text-primary" to={`/item/${data.url}?itemid=${data._id}`}>
+                <Link className="text-lg font-semibold tracking-tight lg:text-gray-900 text-primary underline lg:no-underline hover:text-primary" to={`/item/${data.url}?itemid=${data._id}`}>
                     {
                         data.description
                     }

@@ -14,7 +14,10 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(cors())
 app.use(bodyparser.json())
-
+app.use((req, res, next) => {
+    res.removeHeader("Cross-Origin-Opener-Policy");
+    next();
+});  
 ConnectDB(process.env.MONGO_URL)
 
 app.use('/api',userRouter)
