@@ -118,7 +118,7 @@ function Orders() {
 
                   <div className='flex flex-col gap-2'>
                     <Link className='flex items-center justify-start gap-5 px-5 shadow-md rounded-md py-5' to="/user/dashboard">
-                      <i className='text-2xl text-slate-500'><FaUser /></i>
+                      <i className='text-2xl text-primary'><FaUser /></i>
                       <p className='text-md font-semibold text-slate-500'>PROFILE</p>
                     </Link>
                     <Link className='flex items-center justify-start gap-5 px-5 py-5 rounded-md shadow-md bg-light' to="/user/orders">
@@ -126,7 +126,7 @@ function Orders() {
                       <p className='text-md font-semibold text-base-200'>ORDERS</p>
                     </Link>
                     <Link className='flex items-center justify-start gap-5 px-5 py-5 shadow-md rounded-md' to="/user/address">
-                      <i className='text-2xl text-slate-500'><FaHome /></i>
+                      <i className='text-2xl text-primary'><FaHome /></i>
                       <p className='text-md font-semibold text-slate-500'>ADDRESS</p>
                     </Link>
                   </div>
