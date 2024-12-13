@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Home, Dashboard,ItemPage, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory,SearchResult} from '../pages/GlobalPage'
+import { Home, Dashboard,ItemPage, Cart, Orders, Profile, Settings, PrivateRoute, NotFound, Fashion, Electronics, Computers, Gaming, Books, Sports, Grocery, Health ,Voucher,Services,BesSellers,GiftIdea,NewRelease,Dealoftheday,AllCategory,SearchResult,Address} from '../pages/GlobalPage'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../footer/Footer'
 
@@ -16,6 +16,12 @@ function Routers() {
           <Route path='carts' element={<PrivateRoute Component={Cart}/>}></Route>
           <Route path='orders' element={<PrivateRoute Component={Orders}/>}></Route>
           <Route path='profile' element={<PrivateRoute Component={Profile}/>}></Route>
+          <Route path='address' element={<PrivateRoute Component={Address}/>}></Route>
+
+          {/* <Route path='dashboard' element={<Dashboard/>}></Route>
+          <Route path='address' element={<Address/>}></Route>
+          <Route path='orders' element={<Orders/>}></Route>
+          <Route path='carts' element={<Cart/>}></Route> */}
         </Route>
         <Route path='/all-categories' element={<AllCategory/>}></Route>
         <Route path='/category' element={null}>
