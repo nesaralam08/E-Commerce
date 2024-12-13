@@ -39,7 +39,7 @@ const orders = mongoose.Schema({
     },
     transaction_id:{
         type:String,
-        require:true,
+        default:"null",
         unique:true
     }
 },{timestamps:true})
