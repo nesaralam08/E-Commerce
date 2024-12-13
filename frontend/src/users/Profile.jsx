@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-function Profile() {
-  return (
-    <>
-      <section className='hero flex items-center justify-center min-h-screen'>
-        <h1 className='text-3xl'>Profile Page</h1>
-      </section>
-    </>
-  )
-}
-
-=======
 import React from 'react'
 
 function Profile() {
@@ -50,5 +36,4 @@ function Profile() {
   )
 }
 
->>>>>>> development
 export default Profile
