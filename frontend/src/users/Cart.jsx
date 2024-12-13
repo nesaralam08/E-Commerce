@@ -28,10 +28,10 @@ function Cart() {
   return (
     <>
       {
-        waiting ? <section className='hero min-h-screen h-auto'>
+        waiting ? <PageLoading/> : <section className='hero min-h-screen h-auto'>
           <div className='grid xl:grid-cols-3 grid-cols-1 h-full w-full px-6 gap-4 py-4 bg-slate-100'>
             <div className=' col-span-2 overflow-y-auto scrollbar-hide p-4 max-h-screen bg-white'>
-              
+
               {/* Item Details */}
               {
                 waiting ? <span className="loading loading-spinner loading-md text-slate-400 items-center"></span> : null
@@ -91,8 +91,6 @@ function Cart() {
 
           </div>
         </section>
-          :
-          <PageLoading />
       }
     </>
   )
