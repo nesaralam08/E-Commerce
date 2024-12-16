@@ -2,7 +2,7 @@
 
 Welcome to **Alam Bazaar**, a fully functional e-commerce website built with the **MERN Stack** (MongoDB, Express, React, Node.js). This website allows users to browse products, add them to their cart, and make secure purchases online.
 
-[Developer](https://nesaralam.online)
+[Nesar Alam(Developer)](https://nesaralam.online)
 
 ## Table of Contents
 
