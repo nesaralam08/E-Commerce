@@ -14,7 +14,6 @@ Welcome to **Alam Bazaar**, a fully functional e-commerce website built with the
   - [Installation](#installation)
   - [Running the Development Server](#running-the-development-server)
 - [API Endpoints](#api-endpoints)
-- [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -32,7 +31,7 @@ This project uses **MongoDB** for database storage, **Express** as the backend s
 - **Order Management**: Checkout process with order summary, shipping, and payment.
 - **Admin Dashboard**: Admin can add/edit/delete products and manage orders.
 - **Responsive Design**: Fully responsive design for both desktop and mobile devices.
-- **Secure Payment**: Integration with Stripe (or any other payment provider) for secure transactions.
+- **Secure Payment**: Woorking on it....
 
 ## Tech Stack
 
@@ -46,15 +45,14 @@ This project uses **MongoDB** for database storage, **Express** as the backend s
   - Node.js
   - Express.js
   - MongoDB (Database)
-  - JWT (JSON Web Tokens) for authentication
   - Multer (for file uploads, if needed)
-  - Stripe API (for payment processing)
 
 - **Deployment**: 
-  - Heroku / DigitalOcean (for backend)
-  - Netlify / Vercel (for frontend)
+  - Vercel (for backend)
+  - Vercel (for frontend)
   
 - **Development Tools**: 
-  - NPM / Yarn
+  - NPM
   - VSCode
   - Postman (for testing API endpoints)
+  - Thunder Client(also for API testting)
